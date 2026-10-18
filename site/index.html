@@ -5,7 +5,7 @@
 pre{white-space:pre-wrap;background:#f3f2ee;padding:1rem;border-radius:6px;font-size:13px} img{max-width:100%} h2{margin-top:2rem} .muted{color:#52514e}</style></head><body>
 <h1>CAISO day-ahead forecaster — live, graded record</h1>
 <p class="muted">Every afternoon a job commits tomorrow's 24-hour SP15 load & real-time price forecast to the repo <i>before</i> the day-ahead market clears, then grades it against actuals the next day. Baseline that counts: CAISO's own published day-ahead load forecast; for price, the day-ahead LMP.</p>
-<h2>Running record</h2><p><b>4 days graded.</b> LightGBM beat CAISO's official load forecast on <b>25%</b> of days. Mean load MAE: ours 727 MW vs CAISO 591 MW; RT price MAE: ours $9.8 vs DA LMP $8.5.</p><table class="dataframe t">
+<h2>Running record</h2><p><b>5 days graded.</b> LightGBM beat CAISO's official load forecast on <b>20%</b> of days. Mean load MAE: ours 871 MW vs CAISO 596 MW; RT price MAE: ours $9.2 vs DA LMP $8.6.</p><table class="dataframe t">
   <thead>
     <tr style="text-align: right;">
       <th>entrant / target</th>
@@ -16,66 +16,66 @@ pre{white-space:pre-wrap;background:#f3f2ee;padding:1rem;border-radius:6px;font-
   <tbody>
     <tr>
       <td>gbm load_mw MAE</td>
-      <td>727.5</td>
-      <td>4</td>
+      <td>871.5</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>chronos load_mw MAE</td>
-      <td>2,370.5</td>
-      <td>4</td>
+      <td>2,045.8</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>naive_168 load_mw MAE</td>
-      <td>8,027.2</td>
-      <td>4</td>
+      <td>6,652.9</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>caiso load_mw MAE</td>
-      <td>590.7</td>
-      <td>4</td>
+      <td>595.6</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>gbm lmp_rt MAE</td>
-      <td>9.8</td>
-      <td>4</td>
+      <td>9.2</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>chronos lmp_rt MAE</td>
-      <td>12.5</td>
-      <td>4</td>
+      <td>12.6</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>naive_168 lmp_rt MAE</td>
-      <td>22.7</td>
-      <td>4</td>
+      <td>19.3</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>da_lmp lmp_rt MAE</td>
-      <td>8.5</td>
-      <td>4</td>
+      <td>8.6</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>gbm lmp_da MAE</td>
-      <td>3.8</td>
-      <td>4</td>
+      <td>3.4</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>chronos lmp_da MAE</td>
-      <td>9.4</td>
-      <td>4</td>
+      <td>9.6</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>naive_168 lmp_da MAE</td>
-      <td>25.9</td>
-      <td>4</td>
+      <td>21.7</td>
+      <td>5</td>
     </tr>
   </tbody>
 </table>
-<h2>Latest briefing</h2><pre>**Grid briefing for 2026-10-18** (issued 2026-10-17T18:31:47Z UTC, model trained through 2026-10-16).
-Forecast peak load 29,792 MW at 18:00 local (P10–P90 29,390–31,593); overnight minimum 19,705 MW. Afternoon-to-evening rise about 8,436 MW.
-Real-time SP15 price: median peak $52/MWh at 17:00, P90 $52 (mean-model peak $53, which sits above P90 when the day is skewed); daily median $46.
-Uncertainty band is narrower on the evening ramp (1,693 MW) than at midday (1,842 MW).
-Chronos zero-shot peak 31,109 MW (above ours by 1,316 MW).</pre>
+<h2>Latest briefing</h2><pre>**Grid briefing for 2026-10-19** (issued 2026-10-18T18:41:49Z UTC, model trained through 2026-10-17).
+Forecast peak load 30,328 MW at 18:00 local (P10–P90 28,842–31,990); overnight minimum 20,716 MW. Afternoon-to-evening rise about 7,726 MW.
+Real-time SP15 price: median peak $52/MWh at 18:00, P90 $63 (mean-model peak $67, which sits above P90 when the day is skewed); daily median $44.
+Uncertainty band is wider on the evening ramp (2,448 MW) than at midday (1,983 MW).
+Chronos zero-shot peak 31,062 MW (above ours by 734 MW).</pre>
 <h2>Last 30 graded days (MAE: MW for load, $/MWh for price)</h2><table class="dataframe t">
   <thead>
     <tr style="text-align: right;">
@@ -104,6 +104,30 @@ Chronos zero-shot peak 31,109 MW (above ours by 1,316 MW).</pre>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>2026-10-17</td>
+      <td>2026-10-16T19:41:12Z</td>
+      <td>2026-10-18T18:42:33Z</td>
+      <td>1,447.5</td>
+      <td>0.3</td>
+      <td>747.1</td>
+      <td>1.0</td>
+      <td>1,155.6</td>
+      <td>615.3</td>
+      <td>6.8</td>
+      <td>0.6</td>
+      <td>13.0</td>
+      <td>0.8</td>
+      <td>5.4</td>
+      <td>8.9</td>
+      <td>2.2</td>
+      <td>0.8</td>
+      <td>10.2</td>
+      <td>0.6</td>
+      <td>5.2</td>
+      <td>30,875.0</td>
+      <td>49.0</td>
+    </tr>
     <tr>
       <td>2026-10-15</td>
       <td>2026-10-14T20:16:14Z</td>
@@ -317,5 +341,5 @@ strict = honest (no run after the origin); lenient = previous_day1 for all hours
 | lenient           | 713   | 1041   |  -10.5 |    2.9 |             1558.8 |
 | observed          | 670.3 |  973.7 |  -42.9 |    2.7 |             1646.5 |</pre>
 <h2>Figures</h2><img src="fig1_duck_by_year.png"><img src="fig5_intervals.png"><img src="fig7_battery_frontier.png">
-<p class="muted">Source: <a href="https://github.com/anjalimitt2k/anjaliprojects">github.com/anjalimitt2k/anjaliprojects</a>. Rendered 2026-10-17 18:32 UTC.</p>
+<p class="muted">Source: <a href="https://github.com/anjalimitt2k/anjaliprojects">github.com/anjalimitt2k/anjaliprojects</a>. Rendered 2026-10-18 18:42 UTC.</p>
 </body></html>
